@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   order.init(
     {
       date: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATEONLY,
         allowNull: false,
       },
     },
