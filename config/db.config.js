@@ -17,12 +17,18 @@ const connect = () => {
   });
 
   const db = {};
+  db.order = require("../models/order")(sequelize, DataTypes, Model);
+  db.user = require("../models/user")(sequelize, DataTypes, Model);
+  db.product = require("../models/product")(sequelize, DataTypes, Model);
+
+  Object.keys(db).forEach((modelName) => {
+    if (db[modelName].associate) {
+      db[modelName].associate(db);
+    }
+  });
+
   db.Sequelize = Sequelize;
   db.sequelize = sequelize;
-  db.orders = require("../models/order")(sequelize, DataTypes, Model);
-  db.users = require("../models/user")(sequelize, DataTypes, Model);
-  db.products = require("../models/product")(sequelize, DataTypes, Model);
-
   return db;
 };
 
