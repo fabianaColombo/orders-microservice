@@ -11,17 +11,18 @@ class Orders {
     try {
       const orders = await this.db.order.findAll({
         attributes: [["id", "orderId"], "productId"],
-        include: [{ model: this.db.user, attributes: ["first_name", "last_name", "email"] }],
+        include: [
+          {
+            model: this.db.user,
+            attributes: ["first_name", "last_name", "email"],
+          },
+        ],
       });
 
-      if (!orders) {
-        return { reponseCode: 404, message: "No orders found!" };
-      }
       return orders;
-      
     } catch (e) {
-      console.log(e);
-      return { reponseCode: 500, message: "Something went wrong!" };
+      console.log({ Error: e, message: "Something went wrong!" });
+      return e;
     }
   }
 
