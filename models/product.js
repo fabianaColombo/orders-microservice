@@ -3,12 +3,12 @@
 const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class product extends Model {
+  class Product extends Model {
     static associate(models) {
-      product.belongsTo(models.order, {foreignKey: 'productId'})
+      Product.hasMany(models.order)
     }
   }
-  product.init(
+  Product.init(
     {
       description: {
         type: DataTypes.STRING,
@@ -20,5 +20,5 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "product",
     }
   );
-  return product;
+  return Product;
 };

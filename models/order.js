@@ -3,13 +3,13 @@
 const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class order extends Model {
+  class Order extends Model {
     static associate(models) {
-    order.belongsTo(modesl.user, {foreignKey: 'userId'})
-    order.hasOne(models.product, {foreignKey: 'productId'})
+      Order.belongsTo(models.user, {foreignKey: "userId"})
+      Order.belongsTo(models.product, {foreignKey: "productId"})
     }
   }
-  order.init(
+  Order.init(
     {
       date: {
         type: DataTypes.DATEONLY,
@@ -21,5 +21,5 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "order",
     }
   );
-  return order;
+  return Order;
 };
