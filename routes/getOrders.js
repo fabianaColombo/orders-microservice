@@ -18,7 +18,7 @@ router.get("/orders", async (req, res) => {
         });
     }
 
-    return res.status(202).send(orders);
+    return res.status(200).send(orders);
   } catch (e) {
     console.log(e);
   }
