@@ -1,13 +1,13 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
 const env = process.env.NODE_ENV || "development";
+const config = require("./config")
 
 const connect = () => {
-  const { database, username, password, hostname, dialect } = config[env];
+  const { database, username, password, host, dialect } = config[env];
 
   const sequelize = new Sequelize(database, username, password, {
-    host: hostname,
+    host: host,
     dialect: dialect,
-    operatorsAliases: false,
     pool: {
       max: 10,
       min: 0,
