@@ -7,31 +7,22 @@ These instructions will cover usage information and for the docker container
 
 ### Prerequisities
 
-1 - In order to run this container you'll need docker installed.
+#### General
+* Node.js
+* Git
+* An IDE like Visual Code Studio
+* PostgreSQL database setup OR existing sample database credentials (owned by me)
+
+#### If you will run this container in docker.
 
 * [Windows](https://docs.docker.com/windows/started)
 * [OS X](https://docs.docker.com/mac/started/)
 * [Linux](https://docs.docker.com/linux/started/)
 
-2 - Create a .env file in the repository with the environmental variable defined in the section below
 
 ### Options to run application
 
-#### Using a Dockerfile
-
-Build docker image
-
-```shell
-docker build -t <yourname>/<your-container-name> .
-```
-
-Run docker container
-
-```shell
-docker run -p 4000:4000 -d <yourname>/<your-container-name>
-```
-
-#### Locally run with node
+#### Common setup
 
 Clone the repo and install the dependencies.
 
@@ -42,9 +33,23 @@ cd orders-service
 
 ```bash
 npm install
+``
+
+#### Using a Dockerfile
+
+Build docker image
+
+```shell
+docker build -t <yourname>/<your-image-name> .
 ```
 
-## Steps for read-only access
+Run docker container
+
+```shell
+docker run -p 4000:4000 -d <yourname>/<your-image-name>
+```
+
+#### Run server from terminal
 
 To start the express server, run the following
 
