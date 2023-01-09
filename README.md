@@ -7,13 +7,13 @@ These instructions will cover usage information and for the docker container
 
 ### Prerequisities
 
-##1 - In order to run this container you'll need docker installed.
+1 - In order to run this container you'll need docker installed.
 
 * [Windows](https://docs.docker.com/windows/started)
 * [OS X](https://docs.docker.com/mac/started/)
 * [Linux](https://docs.docker.com/linux/started/)
 
-##2 - Create a .env file in the repository with the environmental variable defined in the section below
+2 - Create a .env file in the repository with the environmental variable defined in the section below
 
 ### Options to run application
 
