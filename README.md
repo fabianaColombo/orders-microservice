@@ -35,7 +35,7 @@ cd orders-service
 npm install
 ```
 
-Create a .env file in the root of the repository conatining 
+Create a .env file in the root of the repository containing 
 
 ###### Environment Variables
 
