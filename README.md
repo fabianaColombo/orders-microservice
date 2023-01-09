@@ -33,7 +33,7 @@ cd orders-service
 
 ```bash
 npm install
-``
+```
 
 #### Using a Dockerfile
 
