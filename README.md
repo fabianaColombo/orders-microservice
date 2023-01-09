@@ -3,7 +3,7 @@ A microservice to post and get product orders in Node.js and Express + PostgreSQ
 
 ## Getting Started
 
-These instructions will cover usage information and for the docker container 
+These instructions will cover how to start the application in development
 
 ### Prerequisities
 
@@ -35,6 +35,17 @@ cd orders-service
 npm install
 ```
 
+Create a .env file in the root of the repository conatining 
+
+###### Environment Variables
+
+* `HOST` - postgresql database host
+* `USERNAME` - postgresql database user name
+* `PASSWORD` - postgresql database password
+* `DB` - postgresql database name
+* `DIALECT` - postgres
+
+
 #### Using a Dockerfile
 
 Build docker image
@@ -58,14 +69,6 @@ npm run dev
 ```
 
 Open [http://localhost:4000](http://localhost:4000) and verify the server is running. If all is correct, you should see "Hello World!".
-
-#### Environment Variables
-
-* `HOST` - postgresql database host
-* `USERNAME` - postgresql database user name
-* `PASSWORD` - postgresql database password
-* `DB` - postgresql database name
-* `DIALECT` - postgres
 
 
 ## API Documentation
