@@ -1,0 +1,74 @@
+openapi: 3.0.0
+info:
+  title: Orders API Documentation
+  description: Created by Fabiana Colombo.
+  version: 0.1
+servers:
+  - url: http://localhost:4000/api
+    description: Local development server
+paths:
+  /orders:
+    get:
+      summary: Returns a list of orders.
+      description: All orders available in the database.
+      tags:
+        - Orders
+      responses:
+        '200': 
+          description: A JSON array of orders
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: object
+                  properties:
+                    orderId:
+                      type: integer
+                    productId:
+                      type: integer  
+                    user:
+                      type: object
+                    first_name:
+                      type: string
+                    last_name:
+                      type: string
+                    email:  
+                      type: string
+                  example:
+                    orderId: 1
+                    productId: 2
+                    user:
+                      first_name: George,
+                      last_name: Bluth,
+                      email: george.bluth@reqres.in  
+  /order:
+    post:
+      summary: Create new order.
+      description: Orders must be unique per product and user must be valid.
+      tags:
+        - Orders
+      requestBody: 
+        required: true
+        content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  order:
+                    type: object
+                    properties:
+                      productId:
+                        type: integer
+                      email:
+                        type: string
+                example: 
+                  order: 
+                    productId: 2
+                    email: "eve.holt@reqres.in"
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+          

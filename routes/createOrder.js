@@ -7,9 +7,19 @@ const router = new Router();
 router.post("/order", async (req, res) => {
   try {
     const module = new Orders();
-    res.send(await module.createOrder());
+    const postBody = await module.createOrder(req.body.order);
+
+    if (postBody.response === "error" || postBody.parent.name === "error") {
+      return res
+        .status(400)
+        .send({
+          status: "Bad Request",
+          error: postBody.message ? postBody.message : postBody,
+        });
+    }
+    return res.status(202).send({ status: "Success", orderId: postBody });
   } catch (e) {
-    console.log(e);
+    return res.status(500).send({ status: "Internal Server Error" });
   }
 });
 
