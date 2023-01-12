@@ -75,7 +75,7 @@ Open [http://localhost:4000](http://localhost:4000) and verify the server is run
 
 * [Postman Collection](https://www.postman.com/gold-sunset-933698/workspace/fabiana-personal-workspace/collection/14882644-c945bcaa-d111-409d-88d1-09fa6701bde9?action=share&creator=14882644)
 * [Swagger Documentation](http://localhost:4000/api-docs/)
-* [Github Repository](https://quay.io/repository/your/docker-repository)
+* [Github Repository](https://github.com/fabianaColombo/orders-service)
 
 
 ## Author
