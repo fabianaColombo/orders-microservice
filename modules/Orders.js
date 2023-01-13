@@ -111,8 +111,8 @@ class Orders {
       });
       if (!findUserInLocalDb) {
         const createLocalUser = await this.db.user.create({
-          first_name: availableUser.first_name,
-          last_name: availableUser.last_name,
+          first_name: availableUser.user.first_name,
+          last_name: availableUser.user.last_name,
           email: email,
         });
 
@@ -126,7 +126,7 @@ class Orders {
             productId: productId,
             date: new Date().toISOString().split("T")[0],
           });
-          return placeOrder.dataValues.id;
+          return {orderId: placeOrder.dataValues.id};
         }
       } else {
         const placeOrder = await this.db.order.create({
@@ -134,7 +134,7 @@ class Orders {
           productId: productId,
           date: new Date().toISOString().split("T")[0],
         });
-        return placeOrder.dataValues.id;
+        return {orderId: placeOrder.dataValues.id};
       }
     } catch (e) {
       console.log(e);
