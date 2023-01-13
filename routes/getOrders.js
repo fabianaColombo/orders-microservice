@@ -10,12 +10,10 @@ router.get("/orders", async (req, res) => {
     const orders = await module.getOrders();
 
     if (orders.Error) {
-      return res
-        .status(500)
-        .send({
-          response: "Something went wrong!",
-          error: orders.Error.parent,
-        });
+      return res.status(500).send({
+        response: "Something went wrong!",
+        error: orders.Error.parent,
+      });
     }
 
     return res.status(200).send(orders);
